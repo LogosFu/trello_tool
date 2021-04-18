@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='toTrello',
-    version='0.0.2',
+    version='0.0.3',
     packages=["trello_tool"],
     entry_points={
         "console_scripts": ['toTrello = trello_tool.__main__:main']

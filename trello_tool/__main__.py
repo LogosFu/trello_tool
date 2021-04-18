@@ -191,11 +191,24 @@ def read_config():
 def main(args=None):
     """The main routine."""
     read_config()
-    file_url = config['file_base_uri'] + sys.argv[1]
-    file_name = sys.argv[2] + ".md"
     stay_stuck_id = get_stay_stuck_id()
     template_card_id = get_template_card_id()
-    create_new_card_for_story(file_name, file_url, stay_stuck_id, template_card_id)
+    print(len(sys.argv))
+    publish_type = len(sys.argv) == 3
+    print(publish_type)
+    if len(sys.argv) == 3 :
+        file_url = config['file_base_uri'] + sys.argv[1]
+        file_name = sys.argv[2] + ".md"
+        create_new_card_for_story(file_name, file_url, stay_stuck_id, template_card_id)
+        return 0
+    else:
+        file_url = config['file_base_uri'] + sys.argv[1]
+        files = os.listdir(file_url)  # 得到文件夹下的所有文件名称
+        for file_name in files:  # 遍历文件夹
+            if not os.path.isdir(file_name):
+                create_new_card_for_story(file_name, file_url, stay_stuck_id, template_card_id)
+    return 0
+
 
 if __name__ == "__main__":
     sys.exit(main())
