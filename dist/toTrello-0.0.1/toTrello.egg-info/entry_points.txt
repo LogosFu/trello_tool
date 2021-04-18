@@ -1,3 +1,0 @@
-[console_scripts]
-toTrello = trello_tool.publish_story_to_trello:main
-

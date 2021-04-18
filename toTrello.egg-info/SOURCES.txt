@@ -7,4 +7,3 @@ toTrello.egg-info/requires.txt
 toTrello.egg-info/top_level.txt
 trello_tool/__init__.py
 trello_tool/__main__.py
-trello_tool/publish_story_to_trello.py
